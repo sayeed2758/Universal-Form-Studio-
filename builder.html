@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7257f5">
+  <meta name="description" content="Create a beautifully formatted, universal editable form with live A4 preview.">
+  <title>Admission Form Designer · Universal Form Studio</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./builder.css">
+</head>
+<body>
+  <header class="builder-topbar">
+    <a class="builder-brand" href="./index.html" aria-label="Back to Universal Form Studio">
+      <span class="builder-brand-mark">f.</span><span><b>formstudio<span>.</span></b><small>UNIVERSAL WORKSPACE</small></span>
+    </a>
+    <div class="builder-breadcrumb"><a href="./index.html">Workspace</a><span>/</span><strong>Form designer</strong></div>
+    <div class="topbar-actions">
+      <span class="unsaved-pill"><i></i> Session only</span>
+      <button class="btn btn-quiet" id="resetDesignBtn" type="button">Reset</button>
+      <button class="btn btn-quiet" id="importDesignBtn" type="button"><span aria-hidden="true">↥</span> Import design</button>
+      <button class="btn btn-quiet" id="exportDesignBtn" type="button"><span aria-hidden="true">↧</span> Export design</button>
+      <button class="btn btn-primary" id="printBtn" type="button"><span aria-hidden="true">▣</span> Print / Save PDF</button>
+      <input id="importDesignFile" type="file" accept="application/json,.json" hidden>
+    </div>
+  </header>
+
+  <main class="builder-main">
+    <div class="builder-heading">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-spark"></span> UNIVERSAL EDITABLE FORM</div>
+        <h1>Give every detail <span>its place.</span></h1>
+        <p>Start with the admission-form reference. Change the branding, add fields, adjust the layout and preview the A4 output live.</p>
+      </div>
+      <div class="heading-chip"><span>✳</span><div><b>Made for real paperwork</b><small>Designed to stay clear as content grows</small></div></div>
+    </div>
+
+    <div class="editor-workspace">
+      <aside class="editor-panel" aria-label="Form design controls">
+        <div class="panel-head"><div><span class="eyebrow-small">DESIGN CONTROLS</span><h2>Make it yours</h2></div><span class="panel-status">LIVE</span></div>
+        <div class="panel-intro"><span class="panel-intro-icon">✦</span><p>Changes update the preview instantly. Nothing is uploaded or saved as a record.</p></div>
+
+        <details class="control-group" open>
+          <summary><span class="summary-icon summary-purple">✳</span><span><b>Brand & heading</b><small>Organization identity and form title</small></span><span class="summary-chevron">⌄</span></summary>
+          <div class="control-body">
+            <label class="control-label" for="orgName">Organization name</label><input id="orgName" data-brand="orgName" maxlength="100" value="EZEE VISION CHAMPUA">
+            <label class="control-label" for="orgAddress">Address / subtitle</label><input id="orgAddress" data-brand="orgAddress" maxlength="150" value="Opposite to Swagat Guest House, Champua">
+            <label class="control-label" for="orgContact">Contact details</label><textarea id="orgContact" data-brand="orgContact" rows="2" maxlength="220">Contact: +91 89172 25693  |  +91 77499 16815  |  +91 91244 78453</textarea>
+            <label class="control-label" for="docTitle">Form title</label><input id="docTitle" data-brand="docTitle" maxlength="100" value="STUDENT ADMISSION FORM">
+            <div class="control-two-col"><div><label class="control-label" for="applicationLabel">Application label</label><input id="applicationLabel" data-brand="applicationLabel" maxlength="35" value="Application No."></div><div><label class="control-label" for="dateLabel">Date label</label><input id="dateLabel" data-brand="dateLabel" maxlength="25" value="Date"></div></div>
+            <label class="control-label" for="footerText">Footer / tagline</label><input id="footerText" data-brand="footerText" maxlength="160" value="EZEE VISION CHAMPUA  |  Simple Concepts • Doubt Solving • Best Explanation">
+            <div class="logo-control-row"><div class="logo-status"><span class="mini-logo" id="logoMiniPreview">EV</span><span><b>Organization logo</b><small id="logoStatusText">Reference logo loaded</small></span></div><label class="btn btn-small btn-outline" for="logoUpload">Replace logo</label><input id="logoUpload" type="file" accept="image/*" hidden></div>
+            <button class="text-action danger-text" type="button" id="removeLogoBtn">Remove logo</button>
+          </div>
+        </details>
+
+        <details class="control-group" open>
+          <summary><span class="summary-icon summary-coral">◒</span><span><b>Appearance & page fit</b><small>Colour, density and print options</small></span><span class="summary-chevron">⌄</span></summary>
+          <div class="control-body">
+            <div class="colour-row"><label for="headerColor"><span>Header & section bars</span><input type="color" id="headerColor" data-style="headerColor" value="#142f66"></label><label for="accentColor"><span>Border / accent</span><input type="color" id="accentColor" data-style="accentColor" value="#2454a6"></label></div>
+            <div class="colour-row"><label for="bandColor"><span>Title band</span><input type="color" id="bandColor" data-style="bandColor" value="#dce8fb"></label><label for="titleInk"><span>Title text</span><input type="color" id="titleInk" data-style="titleInk" value="#142f66"></label></div>
+            <label class="control-label" for="density">Content density</label><select id="density" data-style="density"><option value="balanced">Balanced — more breathing room</option><option value="compact">Compact — more fields per page</option></select>
+            <label class="control-label" for="pageFont">Document type style</label><select id="pageFont" data-style="pageFont"><option value="modern">Modern professional</option><option value="classic">Classic formal</option></select>
+            <div class="toggle-list">
+              <label><span><b>Double-line page border</b><small>Premium print frame</small></span><input type="checkbox" id="doubleBorder" data-style="doubleBorder" checked></label>
+              <label><span><b>Show student photo box</b><small>Photo area in student information</small></span><input type="checkbox" id="showPhoto" data-style="showPhoto" checked></label>
+              <label><span><b>Show application number & date</b><small>Top title strip</small></span><input type="checkbox" id="showMeta" data-style="showMeta" checked></label>
+              <label><span><b>Show signature lines</b><small>Student/guardian and authorized person</small></span><input type="checkbox" id="showSignatures" data-style="showSignatures" checked></label>
+            </div>
+            <label class="control-label" for="signatureLeft">Left signature label</label><input id="signatureLeft" data-brand="signatureLeft" value="Student / Parent / Guardian Signature" maxlength="70">
+            <label class="control-label" for="signatureRight">Right signature label</label><input id="signatureRight" data-brand="signatureRight" value="Authorized Signature" maxlength="70">
+            <div class="control-two-col"><div><label class="control-label" for="officeDateLabel">Office date label</label><input id="officeDateLabel" data-brand="officeDateLabel" value="Date:" maxlength="30"></div><div><label class="control-label" for="officeUseLabel">Office-use label</label><input id="officeUseLabel" data-brand="officeUseLabel" value="For Office Use - Admission No.:" maxlength="70"></div></div>
+          </div>
+        </details>
+
+        <details class="control-group section-controls" open>
+          <summary><span class="summary-icon summary-lime">☷</span><span><b>Sections & fields</b><small>Rename, add, reorder or remove anything</small></span><span class="summary-chevron">⌄</span></summary>
+          <div class="control-body">
+            <div class="section-tools-intro"><p>Keep labels concise. Use “Compact” if your form needs more content; long forms automatically continue onto extra pages when printed.</p><button class="btn btn-small btn-purple-soft" id="addSectionBtn" type="button">＋ Add section</button></div>
+            <div id="sectionsEditor" class="sections-editor"></div>
+          </div>
+        </details>
+        <div class="panel-footnote"><span>⌁</span><div><b>No form records are stored</b><small>Export a design file only when you choose. Student responses and payment records are not part of this editor.</small></div></div>
+      </aside>
+
+      <section class="preview-column" aria-label="Live document preview">
+        <div class="preview-toolbar"><div><span class="eyebrow-small">LIVE CANVAS</span><h2>Paper preview <span class="live-dot"></span></h2></div><div class="preview-tools"><span class="paper-size">A4 · PORTRAIT</span><button id="previewModeBtn" class="preview-mode-btn" type="button">Focus preview ↗</button></div></div>
+        <div class="preview-hint"><span>✦</span> This is a blank print template. Field labels and layout are editable; no student data is being collected.</div>
+        <div class="preview-stage" id="previewStage">
+          <div id="documentPreview" class="document-pages" aria-label="Live A4 form preview"></div>
+        </div>
+        <div class="preview-footer"><span><i></i> LIVE PREVIEW</span><span id="fitMessage">Use <b>Print / Save PDF</b> for the full-size A4 output.</span></div>
+      </section>
+    </div>
+    <footer class="builder-footer"><a href="./index.html">← Back to dashboard</a><span>Universal Form Studio <b>•</b> Designed around your real sample</span></footer>
+  </main>
+  <div class="mobile-editor-actions"><button id="mobilePreviewBtn" class="btn btn-quiet" type="button">Preview</button><button class="btn btn-primary" id="mobilePrintBtn" type="button">Print / Save PDF</button></div>
+  <div class="focus-preview-overlay" id="focusPreviewOverlay" hidden><div class="focus-preview-header"><span><b>Document preview</b><small>Live A4 canvas</small></span><button id="closeFocusPreview" class="btn btn-quiet" type="button">Close ✕</button></div><div class="focus-preview-stage" id="focusPreviewStage"></div></div>
+  <div class="builder-toast" id="builderToast" aria-live="polite"></div>
+  <script src="./builder.js" defer></script>
+</body>
+</html>

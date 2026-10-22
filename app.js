@@ -239,7 +239,15 @@
   }
 
   function showFormIntro(formId) {
-    if (formId === 'custom') return showCustomBrief();
+    // The first real reference is now an editable template, not a placeholder brief.
+    if (formId === 'admission') {
+      window.location.href = './builder.html?template=admission';
+      return;
+    }
+    if (formId === 'custom') {
+      window.location.href = './builder.html?template=custom';
+      return;
+    }
     const form = forms.find(item => item.id === formId);
     if (!form) return;
     const content = `<div class="modal-icon" style="background:${form.tint};color:${form.accent}">${icon(form.icon)}</div><div class="eyebrow eyebrow-muted">${escapeHTML(form.type.toUpperCase())} / TEMPLATE BRIEF</div><h2 id="modalTitle">${escapeHTML(form.name)}<br><span>starts with your sample.</span></h2><p>${escapeHTML(form.detail)}</p><div class="feature-list"><div class="feature-row"><span>${icon('image-plus')}</span><div><b>Bring your reference</b><small>Photo, screenshot or PDF of the form you want us to recreate or improve.</small></div></div><div class="feature-row"><span>${icon('sliders-horizontal')}</span><div><b>Keep it editable</b><small>Organization name, logo, fields, labels and layout will be designed to be customizable.</small></div></div><div class="feature-row"><span>${icon('printer')}</span><div><b>Design for real output</b><small>We’ll account for A4 spacing and print/PDF behavior from the beginning.</small></div></div></div><div class="modal-actions"><button class="button button-primary" data-action="sample-guide">${icon('image-plus')} How to share the sample</button><button class="button button-quiet" data-action="back-to-library">Back to categories</button></div><div class="privacy-note">${icon('shield-check')}<span>This dashboard does not create or save a form record yet. The template will be designed after you share its sample in this chat.</span></div>`;

@@ -1,9 +1,13 @@
 /* Universal Form Studio — offline app shell. No user form records are cached. */
-const CACHE_NAME = 'universal-form-studio-shell-v1';
+const CACHE_NAME = 'universal-form-studio-shell-v3';
 const APP_SHELL = [
   new URL('./index.html', self.registration.scope).href,
   new URL('./styles.css', self.registration.scope).href,
   new URL('./app.js', self.registration.scope).href,
+  new URL('./builder.html', self.registration.scope).href,
+  new URL('./builder.css', self.registration.scope).href,
+  new URL('./builder.js', self.registration.scope).href,
+  new URL('./assets/ev-logo.png', self.registration.scope).href,
   new URL('./manifest.webmanifest', self.registration.scope).href,
   new URL('./icons/icon-192.png', self.registration.scope).href,
   new URL('./icons/icon-512.png', self.registration.scope).href
@@ -36,16 +40,19 @@ self.addEventListener('fetch', event => {
   // For navigation, prefer the latest version, then fall back to the cached shell.
   if (request.mode === 'navigate') {
     event.respondWith((async () => {
+      const cacheUrl = new URL(request.url);
+      cacheUrl.search = '';
+      cacheUrl.hash = '';
       try {
         const response = await fetch(request);
         if (response && response.ok) {
           const cache = await caches.open(CACHE_NAME);
-          cache.put(INDEX_URL, response.clone());
+          cache.put(cacheUrl.href, response.clone());
         }
         return response;
       } catch (error) {
         const cache = await caches.open(CACHE_NAME);
-        return (await cache.match(INDEX_URL)) || Response.error();
+        return (await cache.match(cacheUrl.href)) || (await cache.match(INDEX_URL)) || Response.error();
       }
     })());
     return;
