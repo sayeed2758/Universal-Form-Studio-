@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7257f5">
+  <meta name="description" content="Universal Form Studio — create beautifully designed, editable forms with a vibrant, modern workspace.">
+  <meta name="color-scheme" content="light">
+  <title>Universal Form Studio</title>
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#dashboard" data-nav="dashboard" aria-label="Universal Form Studio home">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M11 10.5h18v5H16.2v4.1h11.1v4.8H16.2v5.1H11z" fill="currentColor"/><path d="M27.8 8.4a3.6 3.6 0 1 1 0 7.2 3.6 3.6 0 0 1 0-7.2" fill="#D8FF80"/></svg></span>
+        <span class="brand-copy"><strong>form<span>studio</span><i>.</i></strong><small>UNIVERSAL WORKSPACE</small></span>
+      </a>
+
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <button class="nav-link is-active" data-nav="dashboard"><span class="nav-icon" data-icon="home"></span><span>Dashboard</span><span class="nav-dot"></span></button>
+        <button class="nav-link" data-nav="library"><span class="nav-icon" data-icon="grid"></span><span>Form library</span><span class="nav-count">06</span></button>
+        <button class="nav-link" data-nav="process"><span class="nav-icon" data-icon="sparkles"></span><span>Design process</span></button>
+      </nav>
+
+      <div class="sidebar-label sidebar-label-spaced">YOUR SPACE</div>
+      <nav class="nav-list">
+        <button class="nav-link" data-nav="preferences"><span class="nav-icon" data-icon="sliders"></span><span>Preferences</span></button>
+        <button class="nav-link" data-action="help"><span class="nav-icon" data-icon="circle-help"></span><span>Help & tips</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="offline-card">
+          <span class="offline-icon" data-icon="shield-check"></span>
+          <div><strong>Your space, your device</strong><p>No account. No cloud records.</p></div>
+          <span class="status-dot" title="Local-first"></span>
+        </div>
+        <button class="profile-mini" data-action="edit-profile">
+          <span class="avatar" id="sidebarAvatar">U</span>
+          <span class="profile-mini-copy"><strong id="sidebarName">Your profile</strong><small id="sidebarState">Set up your space</small></span>
+          <span class="mini-more" data-icon="more-horizontal"></span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="mobileMenu" aria-label="Open navigation" aria-expanded="false"><span data-icon="menu"></span></button>
+        <div class="crumbs"><span class="crumb-muted">Workspace</span><span class="crumb-slash">/</span><strong id="crumbCurrent">Dashboard</strong></div>
+        <div class="topbar-actions">
+          <label class="searchbox" aria-label="Search forms">
+            <span data-icon="search"></span>
+            <input id="globalSearch" type="search" placeholder="Search forms..." autocomplete="off">
+            <kbd>⌘ K</kbd>
+          </label>
+          <button class="install-button" id="installButton"><span data-icon="download"></span><span id="installButtonText">Install app</span></button>
+          <button class="top-avatar" data-action="edit-profile" aria-label="Edit your profile"><span id="topAvatar">U</span></button>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="view is-visible" id="view-dashboard" data-view="dashboard">
+          <div class="welcome-row">
+            <div><div class="eyebrow"><span class="sparkle-dot"></span> YOUR CREATIVE WORKSPACE</div><h1 id="welcomeTitle">Hey there, <span>let’s make it happen.</span></h1><p class="lead" id="welcomeSubtitle">Beautiful paperwork starts here. What are we creating today?</p></div>
+            <div class="date-pill"><span data-icon="calendar-days"></span><span id="todayDate">Today</span></div>
+          </div>
+
+          <section class="hero-card" aria-label="Create a form">
+            <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div><div class="hero-grid"></div>
+            <div class="hero-content">
+              <span class="hero-kicker"><span data-icon="wand-sparkles"></span> YOUR IDEAS, BEAUTIFULLY FORMED</span>
+              <h2>Make forms feel<br><em>extraordinary.</em></h2>
+              <p>Start with a category. We’ll shape each form around your real sample — no cookie-cutter templates.</p>
+              <div class="hero-actions"><button class="button button-lime" data-action="create-form"><span data-icon="plus"></span>Create a form</button><button class="button button-glass" data-nav="library">Explore form library <span data-icon="arrow-up-right"></span></button></div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-spark spark-a">✳</div><div class="art-spark spark-b">✦</div>
+              <div class="floating-note note-top"><span class="note-icon note-purple" data-icon="file-check-2"></span><span><b>Thoughtful layouts</b><small>Made for real use</small></span><span class="note-tick">✓</span></div>
+              <div class="preview-paper"><div class="paper-top"><span class="paper-dot"></span><span class="paper-dot"></span><span class="paper-dot"></span><small>PREVIEW / 01</small></div><div class="paper-brand"><span class="paper-logo">f.</span><span><b>YOUR ORGANIZATION</b><small>Document title goes here</small></span></div><div class="paper-line paper-line-wide"></div><div class="paper-line paper-line-short"></div><div class="paper-fields"><span></span><span></span><span></span><span></span></div><div class="paper-table"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="paper-bottom"><span></span><span></span></div></div>
+              <div class="floating-note note-bottom"><span class="note-icon note-coral" data-icon="scan-line"></span><span><b>Print-ready</b><small>Careful A4 spacing</small></span></div>
+            </div>
+          </section>
+
+          <section class="section-block quick-section">
+            <div class="section-heading"><div><span class="eyebrow eyebrow-muted">A GOOD PLACE TO START</span><h2>Pick your starting point <span class="heading-star">✳</span></h2></div><button class="text-button" data-nav="library">View all forms <span data-icon="arrow-right"></span></button></div>
+            <div class="category-grid" id="dashboardCategories"></div>
+          </section>
+
+          <section class="bottom-grid">
+            <div class="sample-banner">
+              <div class="sample-sticker" aria-hidden="true"><span data-icon="image-plus"></span><span class="sticker-star">✦</span></div>
+              <div class="sample-copy"><span class="eyebrow eyebrow-muted">BUILT AROUND YOUR REFERENCE</span><h3>Real samples. Better forms.</h3><p>Send a photo, screenshot or PDF of the form you want. We’ll follow its structure and improve the finish.</p><button class="text-button" data-action="sample-guide">How to share a sample <span data-icon="arrow-up-right"></span></button></div>
+            </div>
+            <div class="steps-card"><div class="section-heading compact"><div><span class="eyebrow eyebrow-muted">SIMPLE BY DESIGN</span><h3>From idea to paper</h3></div><span class="steps-icon" data-icon="route"></span></div><div class="mini-steps"><div class="mini-step"><span class="step-number step-purple">01</span><span><b>Choose</b><small>Pick a form category</small></span></div><div class="mini-step"><span class="step-number step-coral">02</span><span><b>Personalize</b><small>Make it your own</small></span></div><div class="mini-step"><span class="step-number step-lime">03</span><span><b>Print or PDF</b><small>Ready when you are</small></span></div></div></div>
+          </section>
+          <footer class="page-footer"><span>Made for people who care about the details <span class="footer-heart">♥</span></span><span>Universal Form Studio <i>•</i> Local-first by design</span></footer>
+        </section>
+
+        <section class="view" id="view-library" data-view="library">
+          <div class="page-intro"><div><div class="eyebrow"><span class="sparkle-dot"></span> THE FORM COLLECTION</div><h1>Find your <span>starting point.</span></h1><p class="lead">Every category is a starting point, not a locked template. We’ll design it from your reference.</p></div><button class="button button-primary" data-action="create-form"><span data-icon="plus"></span> Create a form</button></div>
+          <div class="library-toolbar"><div class="filter-tabs" id="filterTabs"><button class="filter-tab is-active" data-filter="All">All forms <span>06</span></button><button class="filter-tab" data-filter="Education">Education</button><button class="filter-tab" data-filter="Business">Business</button><button class="filter-tab" data-filter="General">General</button></div><div class="library-search"><span data-icon="search"></span><input id="librarySearch" type="search" placeholder="Search categories..."></div></div>
+          <div class="library-grid" id="libraryCategories"></div>
+          <div class="library-note"><span class="note-burst" data-icon="sparkles"></span><div><strong>Something specific in mind?</strong><p>Use the custom category to describe your document. No need to fit your work into a preset.</p></div><button class="text-button" data-action="custom-form">Start custom <span data-icon="arrow-right"></span></button></div>
+          <footer class="page-footer"><span>Made for people who care about the details <span class="footer-heart">♥</span></span><span>Universal Form Studio <i>•</i> Local-first by design</span></footer>
+        </section>
+
+        <section class="view" id="view-process" data-view="process">
+          <div class="page-intro"><div><div class="eyebrow"><span class="sparkle-dot"></span> OUR DESIGN PROMISE</div><h1>No random forms.<br><span>Just thoughtful ones.</span></h1><p class="lead">The dashboard is ready. Each document design will follow the real sample you send, one by one.</p></div><div class="intro-art"><span data-icon="palette"></span><span class="intro-art-star">✳</span></div></div>
+          <div class="process-grid"><article class="process-card process-purple"><span class="process-number">01 / REFERENCE</span><span class="process-icon" data-icon="files"></span><h2>Start with the real thing.</h2><p>Share a photo, PDF or screenshot. We’ll study the hierarchy, fields, spacing and what the document needs to do.</p><div class="process-foot">YOUR SAMPLE <span data-icon="arrow-up-right"></span></div></article><article class="process-card process-coral"><span class="process-number">02 / DESIGN</span><span class="process-icon" data-icon="panels-top-left"></span><h2>Give it the right treatment.</h2><p>Professional layout, intentional typography and the right amount of colour — with function before decoration.</p><div class="process-foot">PURPOSEFUL DESIGN <span data-icon="sparkles"></span></div></article><article class="process-card process-lime"><span class="process-number">03 / CUSTOMIZE</span><span class="process-icon" data-icon="sliders-horizontal"></span><h2>Make it yours.</h2><p>Organization name, logo, fields, labels and layout should be editable instead of permanently locked.</p><div class="process-foot">YOUR RULES <span data-icon="check-circle-2"></span></div></article><article class="process-card process-aqua"><span class="process-number">04 / OUTPUT</span><span class="process-icon" data-icon="printer"></span><h2>Ready for real paperwork.</h2><p>Readable A4 output, well-managed page breaks and an interface that stays out of your printed document.</p><div class="process-foot">PRINT / PDF <span data-icon="arrow-up-right"></span></div></article></div>
+          <div class="process-callout"><span data-icon="message-circle"></span><div><strong>Ready to design the first form?</strong><p>Send your first reference in this ChatGPT conversation and tell me which form it is.</p></div><button class="button button-primary" data-action="sample-guide">See sample tips <span data-icon="arrow-right"></span></button></div>
+          <footer class="page-footer"><span>Made for people who care about the details <span class="footer-heart">♥</span></span><span>Universal Form Studio <i>•</i> Local-first by design</span></footer>
+        </section>
+
+        <section class="view" id="view-preferences" data-view="preferences">
+          <div class="page-intro"><div><div class="eyebrow"><span class="sparkle-dot"></span> YOUR WORKSPACE</div><h1>Make yourself <span>at home.</span></h1><p class="lead">A few small preferences. No account, no server profile and no saved form records.</p></div><div class="preferences-art"><span data-icon="sliders-horizontal"></span></div></div>
+          <div class="settings-layout"><section class="settings-card"><div class="settings-title"><span class="settings-icon settings-purple" data-icon="user-round"></span><div><h2>Your display profile</h2><p>Only used to personalize your dashboard on this browser.</p></div></div><form id="profileForm" class="profile-form"><label for="settingsName">Your name</label><input id="settingsName" name="name" maxlength="60" placeholder="Enter your name" required><label for="settingsState">State / Union Territory</label><select id="settingsState" name="state" required></select><div class="form-actions"><button class="button button-primary" type="submit"><span data-icon="check"></span> Save preferences</button><button class="button button-quiet" id="resetProfile" type="button">Clear profile</button></div><p class="settings-help">Your name and state are stored only in this browser’s local storage. This app does not send them to a server.</p></form></section><section class="settings-card"><div class="settings-title"><span class="settings-icon settings-lime" data-icon="smartphone"></span><div><h2>Install the app</h2><p>Add Universal Form Studio to your home screen.</p></div></div><div class="install-info"><div class="install-info-row"><span data-icon="zap"></span><span><b>Fast to open</b><small>Launch it like an app.</small></span></div><div class="install-info-row"><span data-icon="wifi-off"></span><span><b>Offline shell</b><small>After the first successful load, core screens can open offline.</small></span></div><div class="install-info-row"><span data-icon="shield-check"></span><span><b>No cloud records</b><small>No forms or payment records are stored by this app.</small></span></div></div><button class="button button-lime button-wide" id="settingsInstall"><span data-icon="download"></span> Install Universal Form Studio</button><p class="settings-help" id="installStatus">Install availability depends on your browser and whether the site is served over HTTPS.</p></section><section class="settings-card settings-wide"><div class="settings-title"><span class="settings-icon settings-coral" data-icon="database-zap"></span><div><h2>Local-first, by design</h2><p>What this version does and doesn’t keep.</p></div></div><div class="privacy-grid"><div><span class="privacy-check" data-icon="check"></span><b>Kept on this browser</b><p>Your display name and state preference only.</p></div><div><span class="privacy-no" data-icon="x"></span><b>Not stored as records</b><p>Created forms, student data, bills and payment history are not saved.</p></div><div><span class="privacy-no" data-icon="cloud-off"></span><b>No sign-in or backend</b><p>This is a standalone front-end app with no database connection.</p></div></div></section></div>
+          <footer class="page-footer"><span>Made for people who care about the details <span class="footer-heart">♥</span></span><span>Universal Form Studio <i>•</i> Local-first by design</span></footer>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="mobile-scrim" id="mobileScrim"></div>
+  <nav class="mobile-bottom-nav" aria-label="Mobile navigation"><button class="mobile-nav-link is-active" data-nav="dashboard"><span data-icon="home"></span><small>Home</small></button><button class="mobile-nav-link" data-nav="library"><span data-icon="grid"></span><small>Forms</small></button><button class="mobile-nav-create" data-action="create-form" aria-label="Create a form"><span data-icon="plus"></span></button><button class="mobile-nav-link" data-nav="process"><span data-icon="sparkles"></span><small>Process</small></button><button class="mobile-nav-link" data-nav="preferences"><span data-icon="sliders"></span><small>Settings</small></button></nav>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="modal-close icon-button" id="modalClose" aria-label="Close dialog"><span data-icon="x"></span></button>
+      <div class="modal-content" id="modalContent"></div>
+    </section>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
