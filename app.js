@@ -13,7 +13,8 @@
     {id:'admit', name:'Admit Card', type:'Examination', icon:'contact-round', accent:'#168C80', tint:'#DDF8F2', description:'Exam entry cards, coaching tests and hall tickets.', detail:'Candidate identity, roll number, exam information, instructions and signature areas — using your chosen structure.'},
     {id:'report', name:'Report Card', type:'Education', icon:'chart-no-axes-column-increasing', accent:'#B27A12', tint:'#FFF1C9', description:'Subject-wise marks, grades and academic summaries.', detail:'Marks tables, totals, grading rules and remarks will be customized after reviewing your report-card sample.'},
     {id:'invoice', name:'Business Invoice', type:'Business', icon:'file-spreadsheet', accent:'#596FE8', tint:'#E7EAFF', description:'Itemized bills for products, services and small businesses.', detail:'Business identity, client details, item rows, totals and optional tax fields. Tax compliance will need separate verification.'},
-    {id:'receipt', name:'Any Bill / Receipt', type:'General', icon:'file-check-2', accent:'#D24D96', tint:'#FFE4F2', description:'A flexible base for custom bills, vouchers and receipts.', detail:'A purpose-built document that can use the labels, fields and table structure you actually need.'}
+    {id:'receipt', name:'Any Bill / Receipt', type:'General', icon:'file-check-2', accent:'#D24D96', tint:'#FFE4F2', description:'A flexible base for custom bills, vouchers and receipts.', detail:'A purpose-built document that can use the labels, fields and table structure you actually need.'},
+    {id:'tour', name:'Tour Expense Receipt', type:'Travel', icon:'receipt-text', accent:'#9A7427', tint:'#F6ECD2', description:'Record each expense, amount and who paid. See total spending and budget remaining.', detail:'A simple tour receipt with editable member names, live A4 preview, CSV export and editable JSON backup.'}
   ];
 
   const iconPaths = {
@@ -142,11 +143,11 @@
   }
 
   function categoryCard(form, context = 'dashboard') {
-    const status = form.id === 'custom' ? 'MAKE YOUR OWN' : 'SAMPLE NEEDED';
+    const status = form.id === 'custom' ? 'MAKE YOUR OWN' : (form.id === 'tour' ? 'READY NOW' : 'SAMPLE NEEDED');
     return `<button class="category-card" type="button" data-formid="${form.id}" style="--accent:${form.accent};--tint:${form.tint}" aria-label="Explore ${escapeHTML(form.name)}">
       <span class="category-topline"><span class="category-icon">${icon(form.icon)}</span><span class="category-status">${status}</span></span>
       <h3>${escapeHTML(form.name)}</h3><p>${escapeHTML(form.description)}</p>
-      <span class="category-bottom"><span>${form.id === 'custom' ? 'Build your brief' : 'Explore this form'}</span><span class="arrow-circle">${icon('arrow-up-right')}</span></span>
+      <span class="category-bottom"><span>${form.id === 'custom' ? 'Build your brief' : (form.id === 'tour' ? 'Open expense tracker' : 'Explore this form')}</span><span class="arrow-circle">${icon('arrow-up-right')}</span></span>
     </button>`;
   }
   function renderCategories() {
@@ -242,6 +243,10 @@
     // The first real reference is now an editable template, not a placeholder brief.
     if (formId === 'admission') {
       window.location.href = './builder.html?template=admission';
+      return;
+    }
+    if (formId === 'tour') {
+      window.location.href = './tour-receipt.html';
       return;
     }
     if (formId === 'custom') {

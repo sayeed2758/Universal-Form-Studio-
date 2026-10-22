@@ -1,5 +1,5 @@
 /* Universal Form Studio — offline app shell. No user form records are cached. */
-const CACHE_NAME = 'universal-form-studio-shell-v3';
+const CACHE_NAME = 'universal-form-studio-shell-v5';
 const APP_SHELL = [
   new URL('./index.html', self.registration.scope).href,
   new URL('./styles.css', self.registration.scope).href,
@@ -7,7 +7,9 @@ const APP_SHELL = [
   new URL('./builder.html', self.registration.scope).href,
   new URL('./builder.css', self.registration.scope).href,
   new URL('./builder.js', self.registration.scope).href,
-  new URL('./assets/ev-logo.png', self.registration.scope).href,
+  new URL('./tour-receipt.html', self.registration.scope).href,
+  new URL('./tour-receipt.css', self.registration.scope).href,
+  new URL('./tour-receipt.js', self.registration.scope).href,
   new URL('./manifest.webmanifest', self.registration.scope).href,
   new URL('./icons/icon-192.png', self.registration.scope).href,
   new URL('./icons/icon-512.png', self.registration.scope).href
